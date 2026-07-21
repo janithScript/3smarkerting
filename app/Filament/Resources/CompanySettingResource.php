@@ -20,6 +20,8 @@ class CompanySettingResource extends Resource
 
     protected static ?string $navigationGroup = 'Settings';
 
+    protected static ?int $navigationSort = 1;
+
     public static function form(Form $form): Form
     {
         return $form
