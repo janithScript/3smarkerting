@@ -147,52 +147,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="{{ route('home') }}">
-                <i class="fas fa-oil-can me-2"></i>3SMarketing
-            </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
-                            <i class="fas fa-home me-1"></i>Home
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">
-                            <i class="fas fa-info-circle me-1"></i>About
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}" href="{{ route('products.index') }}">
-                            <i class="fas fa-cubes me-1"></i>Products
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('news.*') ? 'active' : '' }}" href="{{ route('news.index') }}">
-                            <i class="fas fa-newspaper me-1"></i>News
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('gallery.*') ? 'active' : '' }}" href="{{ route('gallery.index') }}">
-                            <i class="fas fa-images me-1"></i>Gallery
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('contact.*') ? 'active' : '' }}" href="{{ route('contact.index') }}">
-                            <i class="fas fa-envelope me-1"></i>Contact
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    @include('components.navbar')
 
     <!-- Main Content -->
     <main>
@@ -200,80 +155,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h5><i class="fas fa-oil-can me-2"></i>3SMarketing</h5>
-                    <p class="mb-3">Premium automotive products including brake oil, radiator coolant, grease products, and lubricants for all your automotive needs.</p>
-                    @if($companySetting ?? null)
-                        <div class="mb-2">
-                            <i class="fas fa-phone me-2"></i>
-                            <a href="tel:{{ $companySetting->phone_number }}" class="text-white text-decoration-none">
-                                {{ $companySetting->phone_number }}
-                            </a>
-                        </div>
-                        <div class="mb-2">
-                            <i class="fab fa-whatsapp me-2"></i>
-                            <a href="https://wa.me/{{ str_replace(['+', ' ', '-'], '', $companySetting->whatsapp_number) }}" class="text-white text-decoration-none" target="_blank">
-                                WhatsApp
-                            </a>
-                        </div>
-                    @endif
-                </div>
-
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h6>Quick Links</h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="{{ route('home') }}" class="text-white-50 text-decoration-none">Home</a></li>
-                        <li class="mb-2"><a href="{{ route('about') }}" class="text-white-50 text-decoration-none">About</a></li>
-                        <li class="mb-2"><a href="{{ route('products.index') }}" class="text-white-50 text-decoration-none">Products</a></li>
-                        <li class="mb-2"><a href="{{ route('contact.index') }}" class="text-white-50 text-decoration-none">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h6>Product Categories</h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><span class="text-white-50">Brake Oil</span></li>
-                        <li class="mb-2"><span class="text-white-50">Radiator Coolant</span></li>
-                        <li class="mb-2"><span class="text-white-50">Grease Products</span></li>
-                        <li class="mb-2"><span class="text-white-50">Lubricants</span></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h6>Connect With Us</h6>
-                    @if($companySetting ?? null)
-                        <div class="mb-3">
-                            <i class="fas fa-envelope me-2"></i>
-                            <a href="mailto:{{ $companySetting->company_email }}" class="text-white-50 text-decoration-none">
-                                {{ $companySetting->company_email }}
-                            </a>
-                        </div>
-                    @endif
-                    <div>
-                        <a href="#" class="text-white-50 me-3"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white-50 me-3"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white-50 me-3"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="text-white-50"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <hr class="my-4">
-
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="text-white-50 mb-0">&copy; {{ date('Y') }} 3SMarketing. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <a href="#" class="text-white-50 text-decoration-none me-3">Privacy Policy</a>
-                    <a href="#" class="text-white-50 text-decoration-none">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    @include('components.footer')
 
     <!-- Back to top button -->
     <button onclick="topFunction()" id="backToTopBtn" title="Go to top" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99; border: none; outline: none; background-color: var(--primary-color); color: white; cursor: pointer; padding: 15px; border-radius: 50%; font-size: 16px;">
