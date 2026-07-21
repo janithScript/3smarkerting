@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" style="z-index: 1030;">
         <div class="container">
             <a class="navbar-brand" href="<?php echo e(route('home')); ?>">
                 <i class="fas fa-oil-can me-2"></i>3SMarketing

@@ -95,6 +95,11 @@
             z-index: 1020;
         }
 
+        .product-image-sticky {
+            top: 5.5rem;
+            z-index: 1010;
+        }
+
         .gallery-item {
             position: relative;
             overflow: hidden;

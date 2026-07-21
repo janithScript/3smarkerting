@@ -28,12 +28,12 @@
         <div class="row">
             <!-- Product Image -->
             <div class="col-lg-6 mb-4">
-                <div class="sticky-top" style="top: 2rem;">
-                    <div class="card border-0 shadow-sm">
+                <div class="sticky-top product-image-sticky">
+                    <div class="card border-0 shadow-sm overflow-hidden">
                         <img src="<?php echo e(asset('storage/' . $product->image)); ?>"
-                             class="card-img-top rounded"
+                             class="card-img-top rounded w-100"
                              alt="<?php echo e($product->name); ?>"
-                             style="height: 500px; object-fit: cover;">
+                             style="max-height: 500px; height: auto; object-fit: contain; background-color: #f8f9fa;">
                     </div>
                 </div>
             </div>
